@@ -1,0 +1,57 @@
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Python bytecode, packaging & caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Local SQLite databases (never commit collected datasets)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Scraped publisher exports & benchmark outputs (copyrighted content / runtime artifacts)
+data/*.csv
+data/*.json
+data/*.jsonl
+data/benchmarks/
+data/exports/
+bd_telecom_news.csv
+bd_telecom_news.json
+bd_telecom_fb.csv
+bd_telecom_fb.json
+unified_telecom_intel.csv
+!data/.gitkeep
+
+# Runtime logs
+logs/*.log
+logs/*.log.*
+!logs/.gitkeep
+
+# Local environment secrets (preserve .env.example)
+.env
+.env.*
+!.env.example
+
+# Temporary, backup, editor & OS files
+*.tmp
+*.bak
+*.swp
+*.swo
+.Rhistory
+.RData
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

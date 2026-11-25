@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=77.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bangladesh-telecom-intelligence"
+version = "1.0.0"
+description = "Local-first AI intelligence platform for Bangladesh's telecommunications industry"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = [
+    "httpx>=0.27.0",
+    "feedparser>=6.0.11",
+    "beautifulsoup4>=4.12.3",
+    "lxml>=5.0.0",
+    "trafilatura>=2.0.0",
+    "pydantic>=2.9.0",
+    "ollama>=0.6.0",
+    "starlette>=0.40.0,<2.0.0",
+    "uvicorn>=0.30.0",
+    "streamlit>=1.35.0",
+    "psutil>=5.9.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+bd-telecom-scraper = "bd_telecom_scraper.cli:main"
+bd-telecom-llm = "bd_telecom_scraper.llm.cli:main"
+bd-telecom-tavily = "bd_telecom_scraper.tavily.cli:main"
+bd-telecom-facebook = "bd_telecom_scraper.facebook.cli:main"
+bd-telecom-api = "bd_telecom_scraper.api.server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bd_telecom_scraper*"]
+
+[tool.pytest.ini_options]
+testpaths = ["bd_telecom_scraper/tests"]
+pythonpath = ["."]
+addopts = "-v --tb=short"
